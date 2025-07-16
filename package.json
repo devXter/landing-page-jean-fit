@@ -1,0 +1,26 @@
+{
+  "name": "landing-page-jean-fit",
+  "type": "module",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.3.0",
+    "@astrojs/tailwind": "^6.0.2",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/typography": "^0.5.16",
+    "aos": "^2.3.4",
+    "astro": "^5.11.0",
+    "framer-motion": "^12.23.3",
+    "gsap": "^3.13.0",
+    "keen-slider": "^6.8.6",
+    "lucide-react": "^0.525.0",
+    "simple-parallax-js": "^6.2.1",
+    "tailwindcss": "^3.4.17"
+  }
+}

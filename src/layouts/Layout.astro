@@ -1,0 +1,158 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title,
+  description = "JeanFit Personal Trainer - Transforma tu vida con entrenamiento personalizado. Planes de fitness, nutrición y motivación para alcanzar tus objetivos. ¡Comienza tu transformación hoy!",
+  image = "/og-image.jpg",
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const siteName = "JeanFit Personal Trainer";
+const fullTitle = `${title} | ${siteName}`;
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="personal trainer, fitness, entrenamiento, nutrición, transformación corporal, gym, JeanFit, Chile" />
+    <meta name="author" content="JeanFit Personal Trainer" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="es_CL" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "JeanFit Personal Trainer",
+        "url": "https://jeanfit.cl",
+        "image": "https://jeanfit.cl/jeanfit-profile.jpg",
+        "sameAs": [
+          "https://instagram.com/jeanfit_personal_trainer",
+          "https://tiktok.com/@jeanpfit7"
+        ],
+        "jobTitle": "Personal Trainer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "JeanFit"
+        },
+        "description": "Personal Trainer especializado en transformación corporal, fitness y nutrición",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CL"
+        },
+        "telephone": "+56939419202"
+      }
+    </script>
+    
+    <!-- Service Worker -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ed7a1a" />
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+    
+    <!-- Critical CSS -->
+    <style>
+      /* Critical CSS for above-the-fold content */
+      .hero-gradient {
+        background: linear-gradient(135deg, #ed7a1a 0%, #0ea5e9 100%);
+      }
+      .fade-in {
+        animation: fadeIn 0.6s ease-out;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    </style>
+  </head>
+  
+  <body class="bg-white text-dark-800 antialiased">
+    <!-- Skip to main content for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-500 text-white px-4 py-2 rounded-lg z-50">
+      Saltar al contenido principal
+    </a>
+    
+    <slot />
+    
+    <!-- Structured Data for Organization -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "JeanFit Personal Trainer",
+        "url": "https://jeanfit.cl",
+        "logo": "https://jeanfit.cl/logo.png",
+        "description": "Servicios de entrenamiento personalizado y nutrición para transformación corporal",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CL"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+56939419202",
+          "contactType": "customer service",
+          "availableLanguage": "Spanish"
+        },
+        "sameAs": [
+          "https://instagram.com/jeanfit_personal_trainer",
+          "https://tiktok.com/@jeanpfit7"
+        ]
+      }
+    </script>
+    
+    <!-- Performance monitoring -->
+    <script>
+      // Performance monitoring
+      window.addEventListener('load', () => {
+        if ('performance' in window) {
+          const perfData = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+          if (perfData && 'loadEventEnd' in perfData && 'loadEventStart' in perfData) {
+            console.log('Page load time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style> 

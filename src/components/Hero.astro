@@ -1,0 +1,184 @@
+---
+// Hero section component
+---
+
+<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 hero-wow pt-24 md:pt-32">
+  <!-- Fondo Parallax WOW -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-400/10 via-dark-900/80 to-red-600/20" id="hero-bg-move"></div>
+    <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl" id="hero-float-1"></div>
+    <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-red-600/20 rounded-full blur-3xl" id="hero-float-2"></div>
+    <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl" id="hero-float-3"></div>
+    <!-- Partículas -->
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="particle-yellow"></div>
+      <div class="particle-red"></div>
+      <div class="particle-yellow"></div>
+    </div>
+  </div>
+  <!-- Imagen principal dentro de la columna derecha del grid -->
+  <div class="container-custom relative z-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Content -->
+      <div class="text-center lg:text-left space-y-8">
+        <div class="space-y-4">
+          <div class="inline-flex items-center px-4 py-2 bg-yellow-400/10 border border-yellow-400/20 rounded-full text-yellow-400 text-sm font-bold tracking-wider shadow-lg" id="hero-badge">
+            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
+            ¡NUEVO! Entrenamiento de Alto Impacto
+          </div>
+          <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-hero" id="hero-title">
+            TRANSFORMA TU VIDA.<br />
+            <span class="text-yellow-400">ROMPE TUS LÍMITES.</span>
+          </h1>
+          <p class="text-2xl text-white/80 max-w-2xl mx-auto lg:mx-0" id="hero-subtitle">
+            Entrena con actitud. Vive el cambio. <span class="font-bold text-yellow-400">JeanFit Personal Trainer</span>.<br />
+            <span class="text-red-600 font-semibold">¡Resultados reales, motivación sin límites!</span>
+          </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" id="hero-cta-wrapper">
+          <a href="#contacto" class="btn-primary text-lg px-12 py-5 group bg-gradient-to-r from-yellow-400 via-yellow-300 to-red-600 text-dark-900 font-extrabold shadow-xl rounded-full hover:brightness-110 hover:scale-105 transition-all duration-300 glow-cta relative overflow-hidden" id="hero-cta">
+            <span class="relative z-10">¡Quiero mi transformación!</span>
+            <span class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-yellow-400/20 blur-lg"></span>
+            <svg class="w-7 h-7 ml-3 group-hover:translate-x-1 transition-transform duration-200 inline-block relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+        </div>
+        <!-- Stats WOW -->
+        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-yellow-400/20" id="hero-stats">
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-extrabold text-yellow-400 mb-2 drop-shadow-hero">
+              <span id="count-clientes">0</span>
+            </div>
+            <div class="text-white/80 text-sm">Clientes Satisfechos</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-extrabold text-yellow-400 mb-2 drop-shadow-hero">
+              <span id="count-experiencia">0</span>
+            </div>
+            <div class="text-white/80 text-sm">Años de Experiencia</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl md:text-5xl font-extrabold text-yellow-400 mb-2 drop-shadow-hero">
+              <span id="count-exito">0</span>
+            </div>
+            <div class="text-white/80 text-sm">Tasa de Éxito</div>
+          </div>
+        </div>
+      </div>
+      <!-- Imagen principal Hero -->
+      <div class="flex justify-center items-center" id="hero-img-wrapper">
+        <img src="/jeanfit_imgportada.png" alt="JeanFit Personal Trainer" class="w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto parallax-img hero-img-wow hero-img-glow" style="object-fit:contain;" id="hero-img" />
+      </div>
+    </div>
+  </div>
+  <!-- Scroll Indicator WOW -->
+  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2" id="hero-scroll-indicator">
+    <div class="w-7 h-12 border-2 border-yellow-400/60 rounded-full flex justify-center">
+      <div class="w-1 h-4 bg-yellow-400/80 rounded-full mt-2"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-wow {
+    position: relative;
+    overflow: hidden;
+  }
+  .drop-shadow-hero {
+    text-shadow: 0 2px 12px #000, 0 0 12px #FFD600cc;
+  }
+  .glassmorphism-wow {
+    background: rgba(255,255,255,0.18);
+    box-shadow: 0 8px 32px 0 rgba(255, 214, 0, 0.10);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 2rem;
+    border: 2px solid rgba(255,214,0,0.18);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Animación de entrada para título, subtítulo y CTA
+  gsap.from(["#hero-badge", "#hero-title", "#hero-subtitle", "#hero-cta-wrapper"], {
+    opacity: 0,
+    y: 60,
+    stagger: 0.18,
+    duration: 1.2,
+    ease: "power3.out",
+    delay: 0.2
+  });
+  // Imagen principal
+  gsap.from("#hero-img", {
+    opacity: 0,
+    scale: 0.92,
+    duration: 1.2,
+    ease: "power2.out",
+    delay: 0.7
+  });
+  // Parallax de fondos y partículas
+  gsap.to("#hero-float-1", {
+    y: -30,
+    repeat: -1,
+    yoyo: true,
+    duration: 4,
+    ease: "sine.inOut"
+  });
+  gsap.to("#hero-float-2", {
+    y: 20,
+    repeat: -1,
+    yoyo: true,
+    duration: 5,
+    ease: "sine.inOut"
+  });
+  gsap.to("#hero-float-3", {
+    x: 20,
+    repeat: -1,
+    yoyo: true,
+    duration: 6,
+    ease: "sine.inOut"
+  });
+  // Contadores animados con GSAP
+  function animateCount(id: string, end: number, duration = 2.2, suffix = "") {
+    const el = document.getElementById(id);
+    if (!el) return;
+    gsap.fromTo(el, { innerText: 0 }, {
+      innerText: end,
+      duration,
+      snap: { innerText: 1 },
+      ease: "power1.out",
+      onUpdate: function () {
+        el.textContent = Math.floor(Number(el.innerText)) + suffix;
+      },
+      onComplete: function () {
+        el.textContent = end + suffix;
+      }
+    });
+  }
+  let countersAnimated = false;
+  ScrollTrigger.create({
+    trigger: "#hero-stats",
+    start: "top 80%",
+    once: true,
+    onEnter: () => {
+      if (!countersAnimated) {
+        animateCount("count-clientes", 500, 2.2, "+");
+        animateCount("count-experiencia", 3, 2.2, "+");
+        animateCount("count-exito", 95, 2.2, "%");
+        countersAnimated = true;
+      }
+    }
+  });
+  // Scroll indicator bounce
+  gsap.fromTo("#hero-scroll-indicator", { y: 0 }, {
+    y: 18,
+    repeat: -1,
+    yoyo: true,
+    duration: 1.2,
+    ease: "sine.inOut"
+  });
+</script> 
