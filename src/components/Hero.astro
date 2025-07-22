@@ -50,19 +50,22 @@
             <span class="hidden sm:inline">¡NUEVO!</span> Entrenamiento de Alto Impacto
           </div>
 
-          <h1 class="hero-title text-white leading-tight drop-shadow-hero" id="hero-title">
+          <h1 class="hero-title text-white leading-tight drop-shadow-hero space-y-1 sm:space-y-2" id="hero-title">
             <span class="block">TRANSFORMA TU VIDA.</span>
             <span class="block text-yellow-400">ROMPE TUS LÍMITES.</span>
           </h1>
 
-          <p
-            class="text-lg sm:text-xl md:text-2xl text-white/80 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-            id="hero-subtitle"
-          >
-            Entrena con actitud. Vive el cambio. <span class="font-bold text-yellow-400">JeanFit Personal Trainer</span
-            >.<br />
-            <span class="text-red-600 font-semibold">¡Resultados reales, motivación sin límites!</span>
-          </p>
+          <div class="space-y-2 sm:space-y-3 max-w-2xl mx-auto lg:mx-0" id="hero-subtitle">
+            <p class="text-lg sm:text-xl md:text-2xl text-white/80 leading-relaxed">
+              Entrena con actitud. Vive el cambio.
+            </p>
+            <p class="text-lg sm:text-xl md:text-2xl font-bold text-yellow-400 leading-relaxed">
+              JeanFit Personal Trainer.
+            </p>
+            <p class="text-base sm:text-lg md:text-xl text-red-600 font-semibold leading-relaxed">
+              ¡Resultados reales, motivación sin límites!
+            </p>
+          </div>
         </div>
 
         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start" id="hero-cta-wrapper">
@@ -283,8 +286,49 @@
   /* Responsive hero title adjustments */
   @media (max-width: 639px) {
     .hero-title {
-      font-size: 2rem;
+      font-size: 1.75rem;
       line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Better organization of subtitle in mobile */
+    #hero-subtitle {
+      text-align: center;
+    }
+
+    #hero-subtitle p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Mobile badge improvements */
+    #hero-badge {
+      font-size: 0.75rem;
+      padding: 0.5rem 0.75rem;
+    }
+
+    /* Adjust spacing in mobile for better organization */
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+
+    /* Make sure text colors are clearly separated */
+    #hero-subtitle p:nth-child(1) {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    #hero-subtitle p:nth-child(2) {
+      color: #ffd600;
+      font-weight: 700;
+    }
+
+    #hero-subtitle p:nth-child(3) {
+      color: #dc2626;
+      font-weight: 600;
     }
   }
 
@@ -415,7 +459,7 @@
     onEnter: () => {
       if (!countersAnimated) {
         animateCount('count-clientes', 500, 2.2, '+');
-        animateCount('count-experiencia', 3, 2.2, '+');
+        animateCount('count-experiencia', 10, 2.2, '+');
         animateCount('count-exito', 95, 2.2, '%');
         countersAnimated = true;
       }
