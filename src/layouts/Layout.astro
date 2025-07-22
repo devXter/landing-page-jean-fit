@@ -8,12 +8,12 @@ export interface Props {
 
 const {
   title,
-  description = "JeanFit Personal Trainer - Transforma tu vida con entrenamiento personalizado. Planes de fitness, nutrición y motivación para alcanzar tus objetivos. ¡Comienza tu transformación hoy!",
-  image = "/og-image.jpg",
+  description = 'JeanFit Personal Trainer - Transforma tu vida con entrenamiento personalizado. Planes de fitness, nutrición y motivación para alcanzar tus objetivos. ¡Comienza tu transformación hoy!',
+  image = '/og-image.jpg',
   canonical = Astro.url.href,
 } = Astro.props;
 
-const siteName = "JeanFit Personal Trainer";
+const siteName = 'JeanFit Personal Trainer';
 const fullTitle = `${title} | ${siteName}`;
 ---
 
@@ -22,16 +22,18 @@ const fullTitle = `${title} | ${siteName}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
     <!-- SEO Meta Tags -->
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="personal trainer, fitness, entrenamiento, nutrición, transformación corporal, gym, JeanFit, Chile" />
+    <meta
+      name="keywords"
+      content="personal trainer, fitness, entrenamiento, nutrición, transformación corporal, gym, JeanFit, Chile"
+    />
     <meta name="author" content="JeanFit Personal Trainer" />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
@@ -40,21 +42,21 @@ const fullTitle = `${title} | ${siteName}`;
     <meta property="og:image" content={new URL(image, Astro.url)} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:locale" content="es_CL" />
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonical} />
     <meta property="twitter:title" content={fullTitle} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href={canonical} />
-    
-    <!-- Preconnect to external domains -->
+
+    <!-- Preconnect to external domains for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+
     <!-- Structured Data -->
     <script type="application/ld+json">
       {
@@ -63,10 +65,7 @@ const fullTitle = `${title} | ${siteName}`;
         "name": "JeanFit Personal Trainer",
         "url": "https://jeanfit.cl",
         "image": "https://jeanfit.cl/jeanfit-profile.jpg",
-        "sameAs": [
-          "https://instagram.com/jeanfit_personal_trainer",
-          "https://tiktok.com/@jeanpfit7"
-        ],
+        "sameAs": ["https://instagram.com/jeanfit_personal_trainer", "https://tiktok.com/@jeanpfit7"],
         "jobTitle": "Personal Trainer",
         "worksFor": {
           "@type": "Organization",
@@ -80,43 +79,106 @@ const fullTitle = `${title} | ${siteName}`;
         "telephone": "+56939419202"
       }
     </script>
-    
+
     <!-- Service Worker -->
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#ed7a1a" />
-    
+
     <!-- Performance optimizations -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    
-    <!-- Critical CSS -->
+
+    <!-- Critical CSS - Responsive Optimized -->
     <style>
-      /* Critical CSS for above-the-fold content */
+      /* Critical CSS for above-the-fold content with responsive optimization */
       .hero-gradient {
         background: linear-gradient(135deg, #ed7a1a 0%, #0ea5e9 100%);
       }
+
       .fade-in {
         animation: fadeIn 0.6s ease-out;
       }
+
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive font loading optimization */
+      @media (max-width: 640px) {
+        html {
+          font-size: 14px;
+        }
+      }
+
+      @media (min-width: 641px) and (max-width: 768px) {
+        html {
+          font-size: 15px;
+        }
+      }
+
+      @media (min-width: 769px) {
+        html {
+          font-size: 16px;
+        }
+      }
+
+      /* Prevent layout shift during font loading */
+      body {
+        font-display: swap;
+      }
+
+      /* Responsive images optimization */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      /* Smooth scrolling for all browsers */
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+      }
+
+      /* Focus visible for accessibility */
+      :focus-visible {
+        outline: 2px solid #ffd600;
+        outline-offset: 2px;
+        border-radius: 4px;
+      }
+
+      /* Touch target optimization for mobile */
+      @media (max-width: 768px) {
+        button,
+        a,
+        input,
+        textarea,
+        select {
+          min-height: 44px;
+          min-width: 44px;
+        }
       }
     </style>
   </head>
-  
+
   <body class="bg-white text-dark-800 antialiased">
-    <!-- Header global para SEO -->
-    <header>
-      <h1 class="sr-only">JeanFit Personal Trainer: Entrenamiento y Nutrición Personalizada en Chile</h1>
-    </header>
     <!-- Skip to main content for accessibility -->
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-500 text-white px-4 py-2 rounded-lg z-50">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-500 text-white px-4 py-2 rounded-lg z-50 transition-all duration-200"
+    >
       Saltar al contenido principal
     </a>
-    
+
     <slot />
-    
+
     <!-- Structured Data for Organization -->
     <script type="application/ld+json">
       {
@@ -136,14 +198,11 @@ const fullTitle = `${title} | ${siteName}`;
           "contactType": "customer service",
           "availableLanguage": "Spanish"
         },
-        "sameAs": [
-          "https://instagram.com/jeanfit_personal_trainer",
-          "https://tiktok.com/@jeanpfit7"
-        ]
+        "sameAs": ["https://instagram.com/jeanfit_personal_trainer", "https://tiktok.com/@jeanpfit7"]
       }
     </script>
-    
-    <!-- Performance monitoring -->
+
+    <!-- Performance monitoring and responsive utilities -->
     <script>
       // Performance monitoring
       window.addEventListener('load', () => {
@@ -154,10 +213,153 @@ const fullTitle = `${title} | ${siteName}`;
           }
         }
       });
+
+      // Responsive utility functions
+      (window as any).ResponsiveUtils = {
+        isMobile: () => window.innerWidth < 768,
+        isTablet: () => window.innerWidth >= 768 && window.innerWidth < 1024,
+        isDesktop: () => window.innerWidth >= 1024,
+
+        // Get current breakpoint
+        getBreakpoint: () => {
+          const width = window.innerWidth;
+          if (width < 640) return 'xs';
+          if (width < 768) return 'sm';
+          if (width < 1024) return 'md';
+          if (width < 1280) return 'lg';
+          if (width < 1536) return 'xl';
+          return '2xl';
+        },
+
+        // Debounced resize handler
+        onResize: (callback: () => void, delay: number = 250) => {
+          let timeoutId: any;
+          window.addEventListener('resize', () => {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(callback, delay);
+          });
+        },
+      };
+
+      // Optimize touch interactions on mobile
+      if ('ontouchstart' in window) {
+        document.documentElement.classList.add('touch-device');
+
+        // Improve touch performance
+        document.addEventListener('touchstart', function () {}, { passive: true });
+      }
+
+      // Optimize scroll performance
+      let ticking = false;
+      function updateScrollPosition() {
+        // Custom scroll handlers can be added here
+        ticking = false;
+      }
+
+      window.addEventListener(
+        'scroll',
+        function () {
+          if (!ticking) {
+            requestAnimationFrame(updateScrollPosition);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+
+      // Intersection Observer for responsive image loading
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                const src = img.getAttribute('data-src');
+                if (src) {
+                  img.setAttribute('src', src);
+                  img.removeAttribute('data-src');
+                  observer.unobserve(img);
+                }
+              }
+            });
+          },
+          {
+            rootMargin: '50px',
+          }
+        );
+
+        // Observe all images with data-src attribute
+        window.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('img[data-src]').forEach((img) => {
+            imageObserver.observe(img);
+          });
+        });
+      }
     </script>
   </body>
 </html>
 
 <style is:global>
   @import '../styles/global.css';
-</style> 
+
+  /* Additional responsive optimizations */
+  .touch-device button:hover,
+  .touch-device a:hover {
+    transform: none;
+  }
+
+  /* Responsive container utilities */
+  .container-responsive {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  /* High DPI display optimizations */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .high-dpi-optimized {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      font-size: 12pt;
+      line-height: 1.4;
+    }
+
+    h1,
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+  }
+
+  /* Dark mode support (future enhancement) */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg-color: #1a1a1a;
+      --text-color: #ffffff;
+    }
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>

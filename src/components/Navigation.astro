@@ -2,87 +2,330 @@
 // Navigation component with mobile menu
 ---
 
-<nav class="fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-xl border-b border-yellow-400/30 shadow-lg transition-all duration-500 nav-wow" id="navbar" data-aos="slide-down" role="navigation" aria-label="Navegación principal">
+<nav
+  class="fixed top-0 left-0 right-0 z-40 bg-dark-900/60 backdrop-blur-md border-b border-yellow-400/15 shadow-sm transition-all duration-500 nav-wow"
+  id="navbar"
+>
   <div class="container-custom">
-    <div class="flex items-center justify-between h-16 md:h-20">
+    <div class="flex items-center justify-between h-10 sm:h-12 md:h-14 lg:h-20">
       <!-- Logo WOW -->
-      <div class="flex items-center space-x-2 group hover:scale-110 transition-transform duration-300">
-        <img src="/logo.jpg" alt="Logo JeanFit" class="w-14 h-14 object-contain drop-shadow-xl logo-wow transition-all duration-500" width="56" height="56" />
-        <div>
-          <h1 class="text-2xl md:text-3xl font-extrabold text-yellow-400 tracking-wide drop-shadow-nav-logo">JeanFit</h1>
-          <p class="text-xs text-white hidden sm:block font-semibold tracking-wider drop-shadow-nav-sub">Personal Trainer</p>
+      <a
+        href="#inicio"
+        class="flex items-center space-x-2 group hover:scale-110 transition-transform duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400/30 focus-visible:ring-offset-1 focus-visible:ring-offset-dark-900/50 rounded-lg p-1 logo-link"
+        aria-label="Ir al inicio - JeanFit Personal Trainer"
+        id="logo-link"
+      >
+        <img
+          src="/logo.jpg"
+          alt="Logo JeanFit"
+          class="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-14 lg:h-14 object-contain drop-shadow-lg logo-wow transition-all duration-500"
+          width="56"
+          height="56"
+        />
+        <div class="hidden sm:block">
+          <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-yellow-400 tracking-wide drop-shadow-nav-logo">
+            JeanFit
+          </h1>
+          <p class="text-xs text-white font-semibold tracking-wider drop-shadow-nav-sub hidden md:block">
+            Personal Trainer
+          </p>
         </div>
-      </div>
+        <!-- Logo solo mobile -->
+        <div class="block sm:hidden">
+          <h1 class="text-sm font-bold text-yellow-400 tracking-wide drop-shadow-nav-logo">JeanFit</h1>
+        </div>
+      </a>
+
       <!-- Desktop Navigation -->
-      <div class="hidden md:flex items-center space-x-10">
-        <a href="#inicio" class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow">Inicio</a>
-        <a href="#servicios" class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow">Servicios</a>
-        <a href="#transformaciones" class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow">Transformaciones</a>
-        <a href="#sobre-mi" class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow">Sobre Mí</a>
-        <a href="#contacto" class="btn-primary bg-yellow-400 text-dark-900 font-bold shadow-lg hover:bg-red-600 hover:text-white transition-all duration-300 glow-cta">¡Quiero mi transformación!</a>
+      <div class="hidden lg:flex items-center space-x-6 xl:space-x-10">
+        <a
+          href="#inicio"
+          class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow text-sm xl:text-base"
+          >Inicio</a
+        >
+        <a
+          href="#servicios"
+          class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow text-sm xl:text-base"
+          >Servicios</a
+        >
+        <a
+          href="#transformaciones"
+          class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow text-sm xl:text-base"
+          >Transformaciones</a
+        >
+        <a
+          href="#sobre-mi"
+          class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow text-sm xl:text-base"
+          >Sobre Mí</a
+        >
+        <a
+          href="#contacto"
+          class="btn-primary bg-yellow-400 text-dark-900 font-bold shadow-lg hover:bg-red-600 hover:text-white transition-all duration-300 glow-cta text-sm xl:text-base px-4 py-2 xl:px-6 xl:py-3"
+          >¡Quiero mi transformación!</a
+        >
       </div>
+
+      <!-- Tablet Navigation (hidden on mobile and desktop) -->
+      <div class="hidden md:flex lg:hidden items-center space-x-4">
+        <a
+          href="#inicio"
+          class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow text-sm"
+          >Inicio</a
+        >
+        <a
+          href="#servicios"
+          class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow text-sm"
+          >Servicios</a
+        >
+        <a
+          href="#contacto"
+          class="text-white hover:text-yellow-400 font-semibold transition-colors duration-200 nav-link-wow text-sm"
+          >Contacto</a
+        >
+      </div>
+
       <!-- Mobile menu button -->
-      <button 
-        class="md:hidden p-2 rounded-lg hover:bg-yellow-400/10 transition-colors duration-200"
+      <button
+        class="md:hidden p-2 rounded-lg hover:bg-yellow-400/10 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
         id="mobile-menu-button"
         aria-label="Abrir menú de navegación"
         aria-expanded="false"
       >
-        <svg class="w-7 h-7 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
+        <!-- Hamburger icon -->
+        <div class="w-6 h-6 flex flex-col justify-center items-center">
+          <span
+            class="w-6 h-0.5 bg-yellow-400 rounded transition-all duration-300 transform origin-center"
+            id="hamburger-line-1"></span>
+          <span class="w-6 h-0.5 bg-yellow-400 rounded mt-1.5 transition-all duration-300" id="hamburger-line-2"></span>
+          <span
+            class="w-6 h-0.5 bg-yellow-400 rounded mt-1.5 transition-all duration-300 transform origin-center"
+            id="hamburger-line-3"></span>
+        </div>
       </button>
     </div>
   </div>
-  <!-- Mobile Navigation WOW -->
-  <div class="md:hidden bg-gradient-to-br from-yellow-400/90 via-dark-900/95 to-red-600/90 border-t border-yellow-400/30 transform -translate-y-full transition-transform duration-500 ease-in-out nav-mobile-wow" id="mobile-menu">
-    <div class="container-custom py-6 space-y-4">
-      <a href="#inicio" class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-semibold transition-colors duration-200">Inicio</a>
-      <a href="#servicios" class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-semibold transition-colors duration-200">Servicios</a>
-      <a href="#transformaciones" class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-semibold transition-colors duration-200">Transformaciones</a>
-      <a href="#sobre-mi" class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-semibold transition-colors duration-200">Sobre Mí</a>
-      <a href="#contacto" class="block py-3 px-4 bg-yellow-400 text-dark-900 rounded-lg font-bold hover:bg-red-600 hover:text-white transition-all duration-300 text-center shadow-lg">¡Quiero mi transformación!</a>
+
+  <!-- Mobile Menu Overlay -->
+  <div
+    class="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 invisible transition-all duration-300 ease-in-out z-20"
+    id="mobile-overlay"
+  >
+  </div>
+
+  <!-- Mobile Navigation -->
+  <div
+    class="lg:hidden fixed top-full left-0 w-full bg-dark-900/95 backdrop-blur-xl border-t border-yellow-400/20 shadow-lg transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out z-30 invisible"
+    id="mobile-menu"
+  >
+    <div class="container-custom py-3 space-y-0">
+      <a
+        href="#inicio"
+        class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-medium transition-colors duration-200 text-sm border-b border-gray-700/30 mobile-nav-link"
+        >Inicio</a
+      >
+      <a
+        href="#servicios"
+        class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-medium transition-colors duration-200 text-sm border-b border-gray-700/30 mobile-nav-link"
+        >Servicios</a
+      >
+      <a
+        href="#transformaciones"
+        class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-medium transition-colors duration-200 text-sm border-b border-gray-700/30 mobile-nav-link"
+        >Transformaciones</a
+      >
+      <a
+        href="#sobre-mi"
+        class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-medium transition-colors duration-200 text-sm border-b border-gray-700/30 mobile-nav-link"
+        >Sobre Mí</a
+      >
+      <a
+        href="#contacto"
+        class="block py-3 px-4 text-white hover:text-yellow-400 hover:bg-yellow-400/10 rounded-lg font-medium transition-colors duration-200 text-sm mobile-nav-link"
+        >Contacto</a
+      >
     </div>
   </div>
 </nav>
 
 <style>
   .nav-wow {
-    box-shadow: 0 8px 32px 0 rgba(255, 214, 0, 0.10), 0 1.5px 0 0 #ed1c24;
-    border-bottom: 2.5px solid #FFD60033;
+    box-shadow:
+      0 4px 16px 0 rgba(255, 214, 0, 0.08),
+      0 1px 0 0 #ed1c24;
+    border-bottom: 1px solid #ffd60020;
+    z-index: 40;
   }
+
   .logo-wow {
-    filter: drop-shadow(0 0 12px #FFD600cc);
+    filter: drop-shadow(0 0 12px #ffd600cc);
     transition: filter 0.3s;
   }
+
   .logo-wow:hover {
-    filter: drop-shadow(0 0 24px #FFD600) drop-shadow(0 0 8px #ed1c24);
+    filter: drop-shadow(0 0 24px #ffd600) drop-shadow(0 0 8px #ed1c24);
   }
+
+  /* Logo link hover effects */
+  a[href='#inicio']:hover .logo-wow {
+    filter: drop-shadow(0 0 24px #ffd600) drop-shadow(0 0 8px #ed1c24);
+  }
+
+  a[href='#inicio']:hover h1 {
+    text-shadow:
+      0 2px 8px #000,
+      0 0 12px #ffd600,
+      0 0 6px #ed1c24;
+  }
+
+  a[href='#inicio']:hover p {
+    text-shadow:
+      0 1px 4px #000,
+      0 0 8px #ffd60099;
+  }
+
+  /* Logo container hover effects */
+  a[href='#inicio']:hover {
+    transform: scale(1.05);
+  }
+
+  a[href='#inicio']:active {
+    transform: scale(0.98);
+  }
+
+  /* Logo focus improvements */
+  .logo-link:focus-visible {
+    ring-color: rgba(255, 214, 0, 0.2);
+    transition: box-shadow 0.2s ease-out;
+  }
+
+  .logo-link:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Hide focus during hover for better UX */
+  .logo-link:hover:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Remove focus after interaction */
+  .logo-link.no-focus:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Smooth focus transitions */
+  .logo-link {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.2s ease-out;
+  }
+
   .gradient-text-wow {
-    background: linear-gradient(90deg, #FFD600 0%, #ed1c24 100%);
+    background: linear-gradient(90deg, #ffd600 0%, #ed1c24 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
   .glow-text {
-    text-shadow: 0 0 8px #FFD600, 0 0 2px #ed1c24;
+    text-shadow:
+      0 0 8px #ffd600,
+      0 0 2px #ed1c24;
   }
+
   .glow-cta {
-    box-shadow: 0 0 16px #FFD60099, 0 0 4px #ed1c2499;
+    box-shadow:
+      0 0 16px #ffd60099,
+      0 0 4px #ed1c2499;
   }
+
   .nav-link-wow:hover {
     color: #ed1c24 !important;
-    text-shadow: 0 0 6px #FFD60099;
+    text-shadow: 0 0 6px #ffd60099;
   }
-  .nav-mobile-wow {
-    box-shadow: 0 8px 32px 0 rgba(255, 214, 0, 0.10), 0 1.5px 0 0 #ed1c24;
-    border-bottom: 2.5px solid #FFD60033;
-  }
+
   .drop-shadow-nav-logo {
-    text-shadow: 0 2px 8px #000, 0 0 8px #FFD600cc;
+    text-shadow:
+      0 2px 8px #000,
+      0 0 8px #ffd600cc;
   }
+
   .drop-shadow-nav-sub {
-    text-shadow: 0 1px 4px #000, 0 0 4px #FFD60099;
+    text-shadow:
+      0 1px 4px #000,
+      0 0 4px #ffd60099;
+  }
+
+  /* Hamburger animation */
+  .menu-open #hamburger-line-1 {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .menu-open #hamburger-line-2 {
+    opacity: 0;
+  }
+
+  .menu-open #hamburger-line-3 {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Mobile menu styles */
+  .mobile-nav-link {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Mobile menu states */
+  #mobile-menu.menu-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #mobile-menu.menu-closed {
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Mobile overlay states */
+  #mobile-overlay.menu-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #mobile-overlay.menu-closed {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  /* Responsive navbar height adjustments */
+  @media (max-width: 639px) {
+    .nav-wow {
+      backdrop-filter: blur(10px);
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    .nav-wow {
+      backdrop-filter: blur(15px);
+    }
+  }
+
+  @media (min-width: 768px) {
+    .nav-wow {
+      backdrop-filter: blur(20px);
+    }
+  }
+
+  /* Focus states for accessibility */
+  .nav-link-wow:focus,
+  .mobile-nav-link:focus {
+    outline: 2px solid #ffd600;
+    outline-offset: 2px;
+    border-radius: 4px;
   }
 </style>
 
@@ -90,56 +333,248 @@
   // Mobile menu functionality
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
   const navbar = document.getElementById('navbar');
+  const body = document.body;
+
+  // Initialize menu as closed
+  if (mobileMenu) {
+    mobileMenu.classList.add('menu-closed');
+  }
+  if (mobileOverlay) {
+    mobileOverlay.classList.add('menu-closed');
+  }
 
   if (mobileMenuButton && mobileMenu) {
-    mobileMenuButton.addEventListener('click', () => {
-      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-      mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
-      if (isExpanded) {
-        mobileMenu.classList.remove('translate-y-0');
-        mobileMenu.classList.add('-translate-y-full');
+    mobileMenuButton.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isOpen = mobileMenu.classList.contains('menu-open');
+
+      if (isOpen) {
+        // Close menu
+        mobileMenu.classList.remove('menu-open');
+        mobileMenu.classList.add('menu-closed');
+        if (mobileOverlay) {
+          mobileOverlay.classList.remove('menu-open');
+          mobileOverlay.classList.add('menu-closed');
+        }
+        mobileMenuButton.classList.remove('menu-open');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        body.classList.remove('overflow-hidden');
       } else {
-        mobileMenu.classList.remove('-translate-y-full');
-        mobileMenu.classList.add('translate-y-0');
+        // Open menu
+        mobileMenu.classList.remove('menu-closed');
+        mobileMenu.classList.add('menu-open');
+        if (mobileOverlay) {
+          mobileOverlay.classList.remove('menu-closed');
+          mobileOverlay.classList.add('menu-open');
+        }
+        mobileMenuButton.classList.add('menu-open');
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+        body.classList.add('overflow-hidden');
+      }
+    });
+
+    // Close menu when clicking on links
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('menu-open');
+        mobileMenu.classList.add('menu-closed');
+        if (mobileOverlay) {
+          mobileOverlay.classList.remove('menu-open');
+          mobileOverlay.classList.add('menu-closed');
+        }
+        mobileMenuButton.classList.remove('menu-open');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        body.classList.remove('overflow-hidden');
+      });
+    });
+
+    // Close menu when clicking on overlay
+    if (mobileOverlay) {
+      mobileOverlay.addEventListener('click', () => {
+        mobileMenu.classList.remove('menu-open');
+        mobileMenu.classList.add('menu-closed');
+        mobileOverlay.classList.remove('menu-open');
+        mobileOverlay.classList.add('menu-closed');
+        mobileMenuButton.classList.remove('menu-open');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        body.classList.remove('overflow-hidden');
+      });
+    }
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('menu-open')) {
+        mobileMenu.classList.remove('menu-open');
+        mobileMenu.classList.add('menu-closed');
+        if (mobileOverlay) {
+          mobileOverlay.classList.remove('menu-open');
+          mobileOverlay.classList.add('menu-closed');
+        }
+        mobileMenuButton.classList.remove('menu-open');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        body.classList.remove('overflow-hidden');
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+
+      // Check if menu is open and click is outside menu and button
+      if (mobileMenu.classList.contains('menu-open')) {
+        const isClickInsideMenu = mobileMenu.contains(target);
+        const isClickOnButton = mobileMenuButton.contains(target);
+
+        if (!isClickInsideMenu && !isClickOnButton) {
+          mobileMenu.classList.remove('menu-open');
+          mobileMenu.classList.add('menu-closed');
+          if (mobileOverlay) {
+            mobileOverlay.classList.remove('menu-open');
+            mobileOverlay.classList.add('menu-closed');
+          }
+          mobileMenuButton.classList.remove('menu-open');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          body.classList.remove('overflow-hidden');
+        }
+      }
+    });
+
+    // Close menu when touching outside (mobile)
+    document.addEventListener('touchstart', (e) => {
+      const target = e.target as HTMLElement;
+
+      // Check if menu is open and touch is outside menu and button
+      if (mobileMenu.classList.contains('menu-open')) {
+        const isTouchInsideMenu = mobileMenu.contains(target);
+        const isTouchOnButton = mobileMenuButton.contains(target);
+
+        if (!isTouchInsideMenu && !isTouchOnButton) {
+          mobileMenu.classList.remove('menu-open');
+          mobileMenu.classList.add('menu-closed');
+          if (mobileOverlay) {
+            mobileOverlay.classList.remove('menu-open');
+            mobileOverlay.classList.add('menu-closed');
+          }
+          mobileMenuButton.classList.remove('menu-open');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          body.classList.remove('overflow-hidden');
+        }
       }
     });
   }
+
   // Navbar scroll effect WOW
   if (navbar) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('shadow-2xl');
-        navbar.classList.add('bg-dark-900/95');
-        navbar.classList.add('backdrop-blur-2xl');
-      } else {
-        navbar.classList.remove('shadow-2xl');
-        navbar.classList.remove('bg-dark-900/95');
-        navbar.classList.remove('backdrop-blur-2xl');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener(
+      'scroll',
+      () => {
+        const currentScrollY = window.scrollY;
+
+        // Add/remove background based on scroll position
+        if (currentScrollY > 50) {
+          navbar.classList.add('shadow-2xl');
+          navbar.classList.add('bg-dark-900/95');
+          navbar.classList.add('backdrop-blur-2xl');
+        } else {
+          navbar.classList.remove('shadow-2xl');
+          navbar.classList.remove('bg-dark-900/95');
+          navbar.classList.remove('backdrop-blur-2xl');
+        }
+
+        // Hide/show navbar on scroll (optional)
+        if (window.innerWidth >= 768) {
+          // Only on tablet and desktop
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down
+            navbar.style.transform = 'translateY(-100%)';
+          } else {
+            // Scrolling up
+            navbar.style.transform = 'translateY(0)';
+          }
+        }
+
+        lastScrollY = currentScrollY;
+      },
+      { passive: true }
+    );
+  }
+
+  // Logo focus management
+  const logoLink = document.getElementById('logo-link');
+  if (logoLink) {
+    // Remove focus after click and scroll completion
+    logoLink.addEventListener('click', () => {
+      // Remove focus immediately for better UX
+      setTimeout(() => {
+        logoLink.blur();
+      }, 100);
+    });
+
+    // Remove focus on mouse interaction
+    logoLink.addEventListener('mousedown', () => {
+      logoLink.classList.add('no-focus');
+    });
+
+    // Restore focus ability for keyboard users
+    logoLink.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        logoLink.classList.remove('no-focus');
       }
     });
+
+    // Clean up focus class on blur
+    logoLink.addEventListener('blur', () => {
+      logoLink.classList.remove('no-focus');
+    });
   }
+
   // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
       e.preventDefault();
       const href = anchor.getAttribute('href');
       if (href) {
         const target = document.querySelector(href);
-        if (target) {
-          const offsetTop = (target as HTMLElement).offsetTop - 80; // Account for fixed navbar
+        if (target && navbar) {
+          const navbarHeight = navbar.offsetHeight;
+          const offsetTop = (target as HTMLElement).offsetTop - navbarHeight;
           window.scrollTo({
             top: offsetTop,
-            behavior: 'smooth'
+            behavior: 'smooth',
           });
-          // Close mobile menu if open
-          if (mobileMenu && mobileMenu.classList.contains('translate-y-0')) {
-            mobileMenu.classList.remove('translate-y-0');
-            mobileMenu.classList.add('-translate-y-full');
-            mobileMenuButton?.setAttribute('aria-expanded', 'false');
-          }
+
+          // Remove focus from clicked link after scrolling
+          setTimeout(() => {
+            (anchor as HTMLElement).blur();
+          }, 100);
         }
       }
     });
   });
-</script> 
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    // Close mobile menu if screen becomes large
+    if (window.innerWidth >= 1024 && mobileMenu?.classList.contains('menu-open')) {
+      mobileMenu.classList.remove('menu-open');
+      mobileMenu.classList.add('menu-closed');
+      if (mobileOverlay) {
+        mobileOverlay.classList.remove('menu-open');
+        mobileOverlay.classList.add('menu-closed');
+      }
+      mobileMenuButton?.classList.remove('menu-open');
+      mobileMenuButton?.setAttribute('aria-expanded', 'false');
+      body.classList.remove('overflow-hidden');
+    }
+
+    // Reset navbar transform on mobile
+    if (window.innerWidth < 768 && navbar) {
+      navbar.style.transform = 'translateY(0)';
+    }
+  });
+</script>
