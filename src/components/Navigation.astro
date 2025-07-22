@@ -9,7 +9,12 @@
   <div class="container-custom">
     <div class="flex items-center justify-between h-10 sm:h-12 md:h-14 lg:h-20">
       <!-- Logo WOW -->
-      <div class="flex items-center space-x-2 group hover:scale-110 transition-transform duration-300 cursor-pointer">
+      <a
+        href="#inicio"
+        class="flex items-center space-x-2 group hover:scale-110 transition-transform duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400/30 focus-visible:ring-offset-1 focus-visible:ring-offset-dark-900/50 rounded-lg p-1 logo-link"
+        aria-label="Ir al inicio - JeanFit Personal Trainer"
+        id="logo-link"
+      >
         <img
           src="/logo.jpg"
           alt="Logo JeanFit"
@@ -29,7 +34,7 @@
         <div class="block sm:hidden">
           <h1 class="text-sm font-bold text-yellow-400 tracking-wide drop-shadow-nav-logo">JeanFit</h1>
         </div>
-      </div>
+      </a>
 
       <!-- Desktop Navigation -->
       <div class="hidden lg:flex items-center space-x-6 xl:space-x-10">
@@ -100,6 +105,13 @@
     </div>
   </div>
 
+  <!-- Mobile Menu Overlay -->
+  <div
+    class="lg:hidden fixed inset-0 bg-black/20 backdrop-blur-sm opacity-0 invisible transition-all duration-300 ease-in-out z-20"
+    id="mobile-overlay"
+  >
+  </div>
+
   <!-- Mobile Navigation -->
   <div
     class="lg:hidden fixed top-full left-0 w-full bg-dark-900/95 backdrop-blur-xl border-t border-yellow-400/20 shadow-lg transform -translate-y-full opacity-0 transition-all duration-300 ease-in-out z-30 invisible"
@@ -151,6 +163,63 @@
 
   .logo-wow:hover {
     filter: drop-shadow(0 0 24px #ffd600) drop-shadow(0 0 8px #ed1c24);
+  }
+
+  /* Logo link hover effects */
+  a[href='#inicio']:hover .logo-wow {
+    filter: drop-shadow(0 0 24px #ffd600) drop-shadow(0 0 8px #ed1c24);
+  }
+
+  a[href='#inicio']:hover h1 {
+    text-shadow:
+      0 2px 8px #000,
+      0 0 12px #ffd600,
+      0 0 6px #ed1c24;
+  }
+
+  a[href='#inicio']:hover p {
+    text-shadow:
+      0 1px 4px #000,
+      0 0 8px #ffd60099;
+  }
+
+  /* Logo container hover effects */
+  a[href='#inicio']:hover {
+    transform: scale(1.05);
+  }
+
+  a[href='#inicio']:active {
+    transform: scale(0.98);
+  }
+
+  /* Logo focus improvements */
+  .logo-link:focus-visible {
+    ring-color: rgba(255, 214, 0, 0.2);
+    transition: box-shadow 0.2s ease-out;
+  }
+
+  .logo-link:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Hide focus during hover for better UX */
+  .logo-link:hover:focus-visible {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Remove focus after interaction */
+  .logo-link.no-focus:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Smooth focus transitions */
+  .logo-link {
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.2s ease-out;
   }
 
   .gradient-text-wow {
@@ -221,6 +290,17 @@
     visibility: hidden;
   }
 
+  /* Mobile overlay states */
+  #mobile-overlay.menu-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  #mobile-overlay.menu-closed {
+    opacity: 0;
+    visibility: hidden;
+  }
+
   /* Responsive navbar height adjustments */
   @media (max-width: 639px) {
     .nav-wow {
@@ -253,12 +333,16 @@
   // Mobile menu functionality
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
+  const mobileOverlay = document.getElementById('mobile-overlay');
   const navbar = document.getElementById('navbar');
   const body = document.body;
 
   // Initialize menu as closed
   if (mobileMenu) {
     mobileMenu.classList.add('menu-closed');
+  }
+  if (mobileOverlay) {
+    mobileOverlay.classList.add('menu-closed');
   }
 
   if (mobileMenuButton && mobileMenu) {
@@ -270,6 +354,10 @@
         // Close menu
         mobileMenu.classList.remove('menu-open');
         mobileMenu.classList.add('menu-closed');
+        if (mobileOverlay) {
+          mobileOverlay.classList.remove('menu-open');
+          mobileOverlay.classList.add('menu-closed');
+        }
         mobileMenuButton.classList.remove('menu-open');
         mobileMenuButton.setAttribute('aria-expanded', 'false');
         body.classList.remove('overflow-hidden');
@@ -277,6 +365,10 @@
         // Open menu
         mobileMenu.classList.remove('menu-closed');
         mobileMenu.classList.add('menu-open');
+        if (mobileOverlay) {
+          mobileOverlay.classList.remove('menu-closed');
+          mobileOverlay.classList.add('menu-open');
+        }
         mobileMenuButton.classList.add('menu-open');
         mobileMenuButton.setAttribute('aria-expanded', 'true');
         body.classList.add('overflow-hidden');
@@ -289,20 +381,87 @@
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('menu-open');
         mobileMenu.classList.add('menu-closed');
+        if (mobileOverlay) {
+          mobileOverlay.classList.remove('menu-open');
+          mobileOverlay.classList.add('menu-closed');
+        }
         mobileMenuButton.classList.remove('menu-open');
         mobileMenuButton.setAttribute('aria-expanded', 'false');
         body.classList.remove('overflow-hidden');
       });
     });
 
+    // Close menu when clicking on overlay
+    if (mobileOverlay) {
+      mobileOverlay.addEventListener('click', () => {
+        mobileMenu.classList.remove('menu-open');
+        mobileMenu.classList.add('menu-closed');
+        mobileOverlay.classList.remove('menu-open');
+        mobileOverlay.classList.add('menu-closed');
+        mobileMenuButton.classList.remove('menu-open');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+        body.classList.remove('overflow-hidden');
+      });
+    }
+
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('menu-open')) {
         mobileMenu.classList.remove('menu-open');
         mobileMenu.classList.add('menu-closed');
+        if (mobileOverlay) {
+          mobileOverlay.classList.remove('menu-open');
+          mobileOverlay.classList.add('menu-closed');
+        }
         mobileMenuButton.classList.remove('menu-open');
         mobileMenuButton.setAttribute('aria-expanded', 'false');
         body.classList.remove('overflow-hidden');
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+
+      // Check if menu is open and click is outside menu and button
+      if (mobileMenu.classList.contains('menu-open')) {
+        const isClickInsideMenu = mobileMenu.contains(target);
+        const isClickOnButton = mobileMenuButton.contains(target);
+
+        if (!isClickInsideMenu && !isClickOnButton) {
+          mobileMenu.classList.remove('menu-open');
+          mobileMenu.classList.add('menu-closed');
+          if (mobileOverlay) {
+            mobileOverlay.classList.remove('menu-open');
+            mobileOverlay.classList.add('menu-closed');
+          }
+          mobileMenuButton.classList.remove('menu-open');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          body.classList.remove('overflow-hidden');
+        }
+      }
+    });
+
+    // Close menu when touching outside (mobile)
+    document.addEventListener('touchstart', (e) => {
+      const target = e.target as HTMLElement;
+
+      // Check if menu is open and touch is outside menu and button
+      if (mobileMenu.classList.contains('menu-open')) {
+        const isTouchInsideMenu = mobileMenu.contains(target);
+        const isTouchOnButton = mobileMenuButton.contains(target);
+
+        if (!isTouchInsideMenu && !isTouchOnButton) {
+          mobileMenu.classList.remove('menu-open');
+          mobileMenu.classList.add('menu-closed');
+          if (mobileOverlay) {
+            mobileOverlay.classList.remove('menu-open');
+            mobileOverlay.classList.add('menu-closed');
+          }
+          mobileMenuButton.classList.remove('menu-open');
+          mobileMenuButton.setAttribute('aria-expanded', 'false');
+          body.classList.remove('overflow-hidden');
+        }
       }
     });
   }
@@ -345,6 +504,35 @@
     );
   }
 
+  // Logo focus management
+  const logoLink = document.getElementById('logo-link');
+  if (logoLink) {
+    // Remove focus after click and scroll completion
+    logoLink.addEventListener('click', () => {
+      // Remove focus immediately for better UX
+      setTimeout(() => {
+        logoLink.blur();
+      }, 100);
+    });
+
+    // Remove focus on mouse interaction
+    logoLink.addEventListener('mousedown', () => {
+      logoLink.classList.add('no-focus');
+    });
+
+    // Restore focus ability for keyboard users
+    logoLink.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        logoLink.classList.remove('no-focus');
+      }
+    });
+
+    // Clean up focus class on blur
+    logoLink.addEventListener('blur', () => {
+      logoLink.classList.remove('no-focus');
+    });
+  }
+
   // Smooth scrolling for navigation links
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', (e) => {
@@ -359,6 +547,11 @@
             top: offsetTop,
             behavior: 'smooth',
           });
+
+          // Remove focus from clicked link after scrolling
+          setTimeout(() => {
+            (anchor as HTMLElement).blur();
+          }, 100);
         }
       }
     });
@@ -370,6 +563,10 @@
     if (window.innerWidth >= 1024 && mobileMenu?.classList.contains('menu-open')) {
       mobileMenu.classList.remove('menu-open');
       mobileMenu.classList.add('menu-closed');
+      if (mobileOverlay) {
+        mobileOverlay.classList.remove('menu-open');
+        mobileOverlay.classList.add('menu-closed');
+      }
       mobileMenuButton?.classList.remove('menu-open');
       mobileMenuButton?.setAttribute('aria-expanded', 'false');
       body.classList.remove('overflow-hidden');
