@@ -2,13 +2,32 @@
 // Hero section component
 ---
 
-<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 hero-wow pt-24 md:pt-32">
+<section
+  id="inicio"
+  class="relative hero-height flex items-center justify-center overflow-hidden bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900 hero-wow pt-10 sm:pt-12 md:pt-16 lg:pt-32"
+>
   <!-- Fondo Parallax WOW -->
   <div class="absolute inset-0 z-0">
-    <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-400/10 via-dark-900/80 to-red-600/20" id="hero-bg-move"></div>
-    <div class="absolute top-1/4 left-1/3 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl" id="hero-float-1"></div>
-    <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-red-600/20 rounded-full blur-3xl" id="hero-float-2"></div>
-    <div class="absolute top-1/2 left-1/2 w-64 h-64 bg-white/5 rounded-full blur-2xl" id="hero-float-3"></div>
+    <div
+      class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-yellow-400/10 via-dark-900/80 to-red-600/20"
+      id="hero-bg-move"
+    >
+    </div>
+    <div
+      class="absolute top-1/4 left-1/3 w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-yellow-400/20 rounded-full blur-3xl"
+      id="hero-float-1"
+    >
+    </div>
+    <div
+      class="absolute bottom-10 right-1/4 w-40 h-40 sm:w-56 sm:h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 bg-red-600/20 rounded-full blur-3xl"
+      id="hero-float-2"
+    >
+    </div>
+    <div
+      class="absolute top-1/2 left-1/2 w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 bg-white/5 rounded-full blur-2xl"
+      id="hero-float-3"
+    >
+    </div>
     <!-- Partículas -->
     <div class="absolute inset-0 pointer-events-none">
       <div class="particle-yellow"></div>
@@ -16,66 +35,116 @@
       <div class="particle-yellow"></div>
     </div>
   </div>
-  <!-- Imagen principal dentro de la columna derecha del grid -->
+
+  <!-- Contenido principal -->
   <div class="container-custom relative z-20">
-    <div class="grid lg:grid-cols-2 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
       <!-- Content -->
-      <div class="text-center lg:text-left space-y-8">
-        <div class="space-y-4">
-          <div class="inline-flex items-center px-4 py-2 bg-yellow-400/10 border border-yellow-400/20 rounded-full text-yellow-400 text-sm font-bold tracking-wider shadow-lg" id="hero-badge">
-            <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-            ¡NUEVO! Entrenamiento de Alto Impacto
+      <div class="text-center lg:text-left space-y-4 sm:space-y-6 md:space-y-8">
+        <div class="space-y-3 sm:space-y-4 md:space-y-6">
+          <div
+            class="inline-flex items-center px-3 py-2 sm:px-4 sm:py-2 bg-yellow-400/10 border border-yellow-400/20 rounded-full text-yellow-400 text-xs sm:text-sm font-bold tracking-wider shadow-lg"
+            id="hero-badge"
+          >
+            <span class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-yellow-400 rounded-full mr-2"></span>
+            <span class="hidden sm:inline">¡NUEVO!</span> Entrenamiento de Alto Impacto
           </div>
-          <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight drop-shadow-hero" id="hero-title">
-            TRANSFORMA TU VIDA.<br />
-            <span class="text-yellow-400">ROMPE TUS LÍMITES.</span>
+
+          <h1 class="hero-title text-white leading-tight drop-shadow-hero space-y-1 sm:space-y-2" id="hero-title">
+            <span class="block">TRANSFORMA TU VIDA.</span>
+            <span class="block text-yellow-400">ROMPE TUS LÍMITES.</span>
           </h1>
-          <p class="text-2xl text-white/80 max-w-2xl mx-auto lg:mx-0" id="hero-subtitle">
-            Entrena con actitud. Vive el cambio. <span class="font-bold text-yellow-400">JeanFit Personal Trainer</span>.<br />
-            <span class="text-red-600 font-semibold">¡Resultados reales, motivación sin límites!</span>
-          </p>
+
+          <div class="space-y-2 sm:space-y-3 max-w-2xl mx-auto lg:mx-0" id="hero-subtitle">
+            <p class="text-lg sm:text-xl md:text-2xl text-white/80 leading-relaxed">
+              Entrena con actitud. Vive el cambio.
+            </p>
+            <p class="text-lg sm:text-xl md:text-2xl font-bold text-yellow-400 leading-relaxed">
+              JeanFit Personal Trainer.
+            </p>
+            <p class="text-base sm:text-lg md:text-xl text-red-600 font-semibold leading-relaxed">
+              ¡Resultados reales, motivación sin límites!
+            </p>
+          </div>
         </div>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" id="hero-cta-wrapper">
-          <a href="#contacto" class="btn-primary text-lg px-12 py-5 group bg-gradient-to-r from-yellow-400 via-yellow-300 to-red-600 text-dark-900 font-extrabold shadow-xl rounded-full hover:brightness-110 hover:scale-105 transition-all duration-300 glow-cta relative overflow-hidden" id="hero-cta">
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start" id="hero-cta-wrapper">
+          <a
+            href="#contacto"
+            class="btn-primary text-base sm:text-lg group bg-gradient-to-r from-yellow-400 via-yellow-300 to-red-600 text-dark-900 font-extrabold shadow-xl rounded-full hover:brightness-110 hover:scale-105 transition-all duration-300 glow-cta relative overflow-hidden inline-flex items-center justify-center"
+            id="hero-cta"
+          >
             <span class="relative z-10">¡Quiero mi transformación!</span>
-            <span class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-yellow-400/20 blur-lg"></span>
-            <svg class="w-7 h-7 ml-3 group-hover:translate-x-1 transition-transform duration-200 inline-block relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span
+              class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-yellow-400/20 blur-lg"
+            ></span>
+            <svg
+              class="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 ml-2 sm:ml-3 group-hover:translate-x-1 transition-transform duration-200 relative z-10"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
             </svg>
           </a>
         </div>
+
         <!-- Stats WOW -->
-        <div class="grid grid-cols-3 gap-8 pt-8 border-t border-yellow-400/20" id="hero-stats">
+        <div
+          class="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 pt-6 sm:pt-8 border-t border-yellow-400/20"
+          id="hero-stats"
+        >
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-extrabold text-yellow-400 mb-2 drop-shadow-hero">
+            <div
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-yellow-400 mb-1 sm:mb-2 drop-shadow-hero"
+            >
               <span id="count-clientes">0</span>
             </div>
-            <div class="text-white/80 text-sm">Clientes Satisfechos</div>
+            <div class="text-white/80 text-xs sm:text-sm leading-tight">
+              Clientes<br class="sm:hidden" /> Satisfechos
+            </div>
           </div>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-extrabold text-yellow-400 mb-2 drop-shadow-hero">
+            <div
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-yellow-400 mb-1 sm:mb-2 drop-shadow-hero"
+            >
               <span id="count-experiencia">0</span>
             </div>
-            <div class="text-white/80 text-sm">Años de Experiencia</div>
+            <div class="text-white/80 text-xs sm:text-sm leading-tight">
+              Años de<br class="sm:hidden" /> Experiencia
+            </div>
           </div>
           <div class="text-center">
-            <div class="text-4xl md:text-5xl font-extrabold text-yellow-400 mb-2 drop-shadow-hero">
+            <div
+              class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-yellow-400 mb-1 sm:mb-2 drop-shadow-hero"
+            >
               <span id="count-exito">0</span>
             </div>
-            <div class="text-white/80 text-sm">Tasa de Éxito</div>
+            <div class="text-white/80 text-xs sm:text-sm leading-tight">Tasa de<br class="sm:hidden" /> Éxito</div>
           </div>
         </div>
       </div>
+
       <!-- Imagen principal Hero -->
-      <div class="flex justify-center items-center" id="hero-img-wrapper">
-        <img src="/jeanfit_imgportada.png" alt="JeanFit Personal Trainer" class="w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl h-auto parallax-img hero-img-wow hero-img-glow" style="object-fit:contain;" id="hero-img" />
+      <div class="flex justify-center items-center order-first lg:order-last w-full" id="hero-img-wrapper">
+        <img
+          src="/jeanfit_imgportada.png"
+          alt="JeanFit Personal Trainer"
+          class="w-full max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-none xl:max-w-none 2xl:max-w-none h-auto parallax-img hero-img-wow hero-img-glow smooth-transition opacity-0 hero-img-size"
+          style="object-fit:contain;"
+          id="hero-img"
+        />
       </div>
     </div>
   </div>
+
   <!-- Scroll Indicator WOW -->
-  <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2" id="hero-scroll-indicator">
-    <div class="w-7 h-12 border-2 border-yellow-400/60 rounded-full flex justify-center">
-      <div class="w-1 h-4 bg-yellow-400/80 rounded-full mt-2"></div>
+  <div
+    class="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 hidden md:block"
+    id="hero-scroll-indicator"
+  >
+    <div class="w-6 h-10 sm:w-7 sm:h-12 border-2 border-yellow-400/60 rounded-full flex justify-center">
+      <div class="w-1 h-3 sm:h-4 bg-yellow-400/80 rounded-full mt-1.5 sm:mt-2"></div>
     </div>
   </div>
 </section>
@@ -85,100 +154,351 @@
     position: relative;
     overflow: hidden;
   }
+
   .drop-shadow-hero {
-    text-shadow: 0 2px 12px #000, 0 0 12px #FFD600cc;
+    text-shadow:
+      0 2px 12px #000,
+      0 0 12px #ffd600cc;
   }
+
   .glassmorphism-wow {
-    background: rgba(255,255,255,0.18);
-    box-shadow: 0 8px 32px 0 rgba(255, 214, 0, 0.10);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(255, 214, 0, 0.1);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-radius: 2rem;
-    border: 2px solid rgba(255,214,0,0.18);
+    border: 2px solid rgba(255, 214, 0, 0.18);
+  }
+
+  /* Partículas flotantes responsivas */
+  .particle-yellow,
+  .particle-red {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @media (min-width: 640px) {
+    .particle-yellow,
+    .particle-red {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .particle-yellow,
+    .particle-red {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  .particle-yellow {
+    background: #ffd600;
+    top: 20%;
+    left: 10%;
+    animation-delay: -2s;
+  }
+
+  .particle-red {
+    background: #ed1c24;
+    top: 60%;
+    right: 15%;
+    animation-delay: -4s;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    33% {
+      transform: translateY(-20px) rotate(120deg);
+    }
+    66% {
+      transform: translateY(10px) rotate(240deg);
+    }
+  }
+
+  /* Efectos adicionales para hero */
+  .hero-img-glow {
+    filter: drop-shadow(0 0 20px rgba(255, 214, 0, 0.3));
+  }
+
+  .glow-cta {
+    box-shadow:
+      0 0 16px #ffd60099,
+      0 0 4px #ed1c2499;
+  }
+
+  /* Asegurar que la imagen del hero se mantenga visible */
+  #hero-img {
+    will-change: opacity, transform;
+  }
+
+  #hero-img.gsap-animated {
+    opacity: 1 !important;
+  }
+
+  /* Tamaño específico para la imagen del hero en desktop */
+  .hero-img-size {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  @media (min-width: 640px) {
+    .hero-img-size {
+      max-width: 400px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero-img-size {
+      max-width: 500px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-img-size {
+      max-width: 650px;
+      width: 650px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .hero-img-size {
+      max-width: 750px;
+      width: 750px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .hero-img-size {
+      max-width: 850px;
+      width: 850px;
+    }
+  }
+
+  /* Responsive hero title adjustments */
+  @media (max-width: 639px) {
+    .hero-title {
+      font-size: 1.75rem;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    /* Better organization of subtitle in mobile */
+    #hero-subtitle {
+      text-align: center;
+    }
+
+    #hero-subtitle p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Mobile badge improvements */
+    #hero-badge {
+      font-size: 0.75rem;
+      padding: 0.5rem 0.75rem;
+    }
+
+    /* Adjust spacing in mobile for better organization */
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+
+    /* Make sure text colors are clearly separated */
+    #hero-subtitle p:nth-child(1) {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    #hero-subtitle p:nth-child(2) {
+      color: #ffd600;
+      font-weight: 700;
+    }
+
+    #hero-subtitle p:nth-child(3) {
+      color: #dc2626;
+      font-weight: 600;
+    }
+  }
+
+  @media (min-width: 640px) and (max-width: 767px) {
+    .hero-title {
+      font-size: 2.5rem;
+      line-height: 1.1;
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.1;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    .hero-title {
+      font-size: 4rem;
+      line-height: 1.1;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .hero-title {
+      font-size: 5rem;
+      line-height: 1.1;
+    }
   }
 </style>
 
 <script>
-  import { gsap } from "gsap";
-  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animación de entrada para título, subtítulo y CTA
-  gsap.from(["#hero-badge", "#hero-title", "#hero-subtitle", "#hero-cta-wrapper"], {
+  // Animación de entrada para título, subtítulo y CTA con responsividad
+  gsap.from(['#hero-badge', '#hero-title', '#hero-subtitle', '#hero-cta-wrapper'], {
     opacity: 0,
     y: 60,
     stagger: 0.18,
     duration: 1.2,
-    ease: "power3.out",
-    delay: 0.2
+    ease: 'power3.out',
+    delay: 0.2,
   });
-  // Imagen principal
-  gsap.from("#hero-img", {
-    opacity: 0,
-    scale: 0.92,
-    duration: 1.2,
-    ease: "power2.out",
-    delay: 0.7
-  });
-  // Parallax de fondos y partículas
-  gsap.to("#hero-float-1", {
-    y: -30,
+
+  // Imagen principal con animación responsiva
+  gsap.fromTo(
+    '#hero-img',
+    {
+      opacity: 0,
+      scale: 0.92,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 1.2,
+      ease: 'power2.out',
+      delay: 0.7,
+      onComplete: function () {
+        // Asegurar que la imagen se mantenga visible después de la animación
+        const img = document.getElementById('hero-img');
+        if (img) {
+          img.classList.add('gsap-animated');
+          img.style.opacity = '1';
+          img.style.transform = 'scale(1)';
+        }
+      },
+    }
+  );
+
+  // Parallax de fondos y partículas con ajustes responsivos
+  const isMobile = window.innerWidth < 768;
+  const parallaxDistance = isMobile ? 15 : 30;
+
+  gsap.to('#hero-float-1', {
+    y: -parallaxDistance,
     repeat: -1,
     yoyo: true,
     duration: 4,
-    ease: "sine.inOut"
+    ease: 'sine.inOut',
   });
-  gsap.to("#hero-float-2", {
-    y: 20,
+
+  gsap.to('#hero-float-2', {
+    y: parallaxDistance * 0.7,
     repeat: -1,
     yoyo: true,
     duration: 5,
-    ease: "sine.inOut"
+    ease: 'sine.inOut',
   });
-  gsap.to("#hero-float-3", {
-    x: 20,
+
+  gsap.to('#hero-float-3', {
+    x: parallaxDistance * 0.5,
     repeat: -1,
     yoyo: true,
     duration: 6,
-    ease: "sine.inOut"
+    ease: 'sine.inOut',
   });
+
   // Contadores animados con GSAP
-  function animateCount(id: string, end: number, duration = 2.2, suffix = "") {
+  function animateCount(id: string, end: number, duration = 2.2, suffix = '') {
     const el = document.getElementById(id);
     if (!el) return;
-    gsap.fromTo(el, { innerText: 0 }, {
-      innerText: end,
-      duration,
-      snap: { innerText: 1 },
-      ease: "power1.out",
-      onUpdate: function () {
-        el.textContent = Math.floor(Number(el.innerText)) + suffix;
-      },
-      onComplete: function () {
-        el.textContent = end + suffix;
+    gsap.fromTo(
+      el,
+      { innerText: 0 },
+      {
+        innerText: end,
+        duration,
+        snap: { innerText: 1 },
+        ease: 'power1.out',
+        onUpdate: function () {
+          el.textContent = Math.floor(Number(el.innerText)) + suffix;
+        },
+        onComplete: function () {
+          el.textContent = end + suffix;
+        },
       }
-    });
+    );
   }
+
   let countersAnimated = false;
   ScrollTrigger.create({
-    trigger: "#hero-stats",
-    start: "top 80%",
+    trigger: '#hero-stats',
+    start: 'top 80%',
     once: true,
     onEnter: () => {
       if (!countersAnimated) {
-        animateCount("count-clientes", 500, 2.2, "+");
-        animateCount("count-experiencia", 3, 2.2, "+");
-        animateCount("count-exito", 95, 2.2, "%");
+        animateCount('count-clientes', 500, 2.2, '+');
+        animateCount('count-experiencia', 10, 2.2, '+');
+        animateCount('count-exito', 95, 2.2, '%');
         countersAnimated = true;
       }
+    },
+  });
+
+  // Scroll indicator bounce (solo en desktop)
+  const scrollIndicator = document.getElementById('hero-scroll-indicator');
+  if (scrollIndicator && window.innerWidth >= 768) {
+    gsap.fromTo(
+      '#hero-scroll-indicator',
+      { y: 0 },
+      {
+        y: 18,
+        repeat: -1,
+        yoyo: true,
+        duration: 1.2,
+        ease: 'sine.inOut',
+      }
+    );
+  }
+
+  // Responsive adjustments en resize
+  window.addEventListener('resize', () => {
+    const newIsMobile = window.innerWidth < 768;
+    if (newIsMobile !== isMobile) {
+      location.reload(); // Reload para reajustar animaciones
     }
   });
-  // Scroll indicator bounce
-  gsap.fromTo("#hero-scroll-indicator", { y: 0 }, {
-    y: 18,
-    repeat: -1,
-    yoyo: true,
-    duration: 1.2,
-    ease: "sine.inOut"
+
+  // Verificación adicional para pantallas de alta resolución
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const img = document.getElementById('hero-img');
+      if (img && window.getComputedStyle(img).opacity === '0') {
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+        img.classList.add('gsap-animated');
+      }
+    }, 2000);
   });
-</script> 
+</script>
