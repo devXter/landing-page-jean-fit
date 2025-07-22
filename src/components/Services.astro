@@ -50,7 +50,7 @@
     </div>
 
     <!-- Features Grid Responsivo -->
-    <div class="responsive-grid mb-8 sm:mb-12 md:mb-16">
+    <div class="services-grid mb-8 sm:mb-12 md:mb-16">
       <div class="service-card service-card-gamify smooth-transition" id="service-card-1">
         <div
           class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-primary-500 transition-colors duration-300 icon-wow-gamify"
@@ -465,6 +465,26 @@
 </section>
 
 <style>
+  /* Grid de servicios responsivo - 3x2 en desktop */
+  .services-grid {
+    display: grid;
+    gap: var(--grid-gap);
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 640px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
   /* Estilos para las cards de servicios responsivas */
   .service-card {
     background: #fff;
