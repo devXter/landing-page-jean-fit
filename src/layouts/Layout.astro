@@ -22,6 +22,7 @@ const fullTitle = `${title} | ${siteName}`;
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
@@ -105,6 +106,10 @@ const fullTitle = `${title} | ${siteName}`;
   </head>
   
   <body class="bg-white text-dark-800 antialiased">
+    <!-- Header global para SEO -->
+    <header>
+      <h1 class="sr-only">JeanFit Personal Trainer: Entrenamiento y Nutrición Personalizada en Chile</h1>
+    </header>
     <!-- Skip to main content for accessibility -->
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-500 text-white px-4 py-2 rounded-lg z-50">
       Saltar al contenido principal
