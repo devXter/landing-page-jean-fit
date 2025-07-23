@@ -125,15 +125,24 @@
         </div>
       </div>
 
-      <!-- Imagen principal Hero -->
-      <div class="flex justify-center items-center order-first lg:order-last w-full" id="hero-img-wrapper">
-        <img
-          src="/jeanfit_imgportada.png"
-          alt="JeanFit Personal Trainer"
-          class="w-full max-w-xs sm:max-w-sm md:max-w-xl lg:max-w-none xl:max-w-none 2xl:max-w-none h-auto parallax-img hero-img-wow hero-img-glow smooth-transition opacity-0 hero-img-size"
-          style="object-fit:contain;"
-          id="hero-img"
-        />
+      <!-- Video principal Hero -->
+      <div class="flex justify-center items-center order-first lg:order-last w-full" id="hero-video-wrapper">
+        <!-- Contenedor del video simplificado -->
+        <div class="relative w-full flex justify-center" id="hero-video-container">
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/jeanfit_imgportada.png"
+            class="hero-video-clean rounded-2xl shadow-2xl"
+            id="hero-video"
+          >
+            <source src="/Video-promocional-v1.mp4" type="video/mp4" />
+            Tu navegador no soporta videos HTML5.
+          </video>
+        </div>
       </div>
     </div>
   </div>
@@ -224,9 +233,19 @@
     }
   }
 
-  /* Efectos adicionales para hero */
-  .hero-img-glow {
-    filter: drop-shadow(0 0 20px rgba(255, 214, 0, 0.3));
+  /* Estilos del video principal simplificados */
+  .hero-video-clean {
+    width: 100%;
+    height: 80vh; /* 80% de la altura de la viewport */
+    max-height: 80vh;
+    object-fit: cover;
+    filter: drop-shadow(0 0 20px rgba(255, 214, 0, 0.4));
+    transition: all 0.3s ease;
+  }
+
+  .hero-video-clean:hover {
+    filter: drop-shadow(0 0 30px rgba(255, 214, 0, 0.6));
+    transform: scale(1.02);
   }
 
   .glow-cta {
@@ -235,51 +254,41 @@
       0 0 4px #ed1c2499;
   }
 
-  /* Asegurar que la imagen del hero se mantenga visible */
-  #hero-img {
+  /* Asegurar que el video se mantenga visible */
+  #hero-video {
     will-change: opacity, transform;
+    opacity: 1;
+    display: block;
   }
 
-  #hero-img.gsap-animated {
+  #hero-video.gsap-animated {
     opacity: 1 !important;
   }
 
-  /* Tamaño específico para la imagen del hero en desktop */
-  .hero-img-size {
-    width: 100%;
-    max-width: 300px;
+  /* Configuración del video */
+  video {
+    background-color: transparent;
   }
 
-  @media (min-width: 640px) {
-    .hero-img-size {
-      max-width: 400px;
+  /* Ajustes responsivos para el video */
+  @media (max-width: 1024px) {
+    .hero-video-clean {
+      height: 70vh; /* Reducir un poco en tablets */
+      max-height: 70vh;
     }
   }
 
-  @media (min-width: 768px) {
-    .hero-img-size {
-      max-width: 500px;
+  @media (max-width: 768px) {
+    .hero-video-clean {
+      height: 60vh; /* Más pequeño en móvil */
+      max-height: 60vh;
     }
   }
 
-  @media (min-width: 1024px) {
-    .hero-img-size {
-      max-width: 650px;
-      width: 650px;
-    }
-  }
-
-  @media (min-width: 1280px) {
-    .hero-img-size {
-      max-width: 750px;
-      width: 750px;
-    }
-  }
-
-  @media (min-width: 1536px) {
-    .hero-img-size {
-      max-width: 850px;
-      width: 850px;
+  @media (max-width: 480px) {
+    .hero-video-clean {
+      height: 50vh; /* Aún más pequeño en móviles pequeños */
+      max-height: 50vh;
     }
   }
 
@@ -376,26 +385,42 @@
     delay: 0.2,
   });
 
-  // Imagen principal con animación responsiva
+  // Animación simple del contenedor del video
   gsap.fromTo(
-    '#hero-img',
+    '#hero-video-container',
     {
       opacity: 0,
-      scale: 0.92,
+      scale: 0.9,
     },
     {
       opacity: 1,
       scale: 1,
       duration: 1.2,
       ease: 'power2.out',
+      delay: 0.5,
+    }
+  );
+
+  // Video principal con animación suave
+  gsap.fromTo(
+    '#hero-video',
+    {
+      opacity: 0,
+      scale: 0.95,
+    },
+    {
+      opacity: 1,
+      scale: 1,
+      duration: 1.5,
+      ease: 'power2.out',
       delay: 0.7,
       onComplete: function () {
-        // Asegurar que la imagen se mantenga visible después de la animación
-        const img = document.getElementById('hero-img');
-        if (img) {
-          img.classList.add('gsap-animated');
-          img.style.opacity = '1';
-          img.style.transform = 'scale(1)';
+        // Asegurar que el video se mantenga visible después de la animación
+        const video = document.getElementById('hero-video');
+        if (video) {
+          video.classList.add('gsap-animated');
+          video.style.opacity = '1';
+          video.style.transform = 'scale(1)';
         }
       },
     }
@@ -490,15 +515,31 @@
     }
   });
 
-  // Verificación adicional para pantallas de alta resolución
+  // Verificación adicional para el video
   window.addEventListener('load', () => {
     setTimeout(() => {
-      const img = document.getElementById('hero-img');
-      if (img && window.getComputedStyle(img).opacity === '0') {
-        img.style.opacity = '1';
-        img.style.transform = 'scale(1)';
-        img.classList.add('gsap-animated');
+      const video = document.getElementById('hero-video') as HTMLVideoElement;
+      if (video) {
+        // Forzar visibilidad del video
+        video.style.opacity = '1';
+        video.style.transform = 'scale(1)';
+        video.style.display = 'block';
+        video.classList.add('gsap-animated');
+
+        // Intentar reproducir el video si no está reproduciéndose
+        video.play().catch((error: any) => {
+          console.log('Video autoplay prevented:', error);
+        });
       }
-    }, 2000);
+    }, 1000);
+  });
+
+  // Asegurar que el video sea visible inmediatamente
+  document.addEventListener('DOMContentLoaded', () => {
+    const video = document.getElementById('hero-video') as HTMLVideoElement;
+    if (video) {
+      video.style.opacity = '1';
+      video.style.display = 'block';
+    }
   });
 </script>
