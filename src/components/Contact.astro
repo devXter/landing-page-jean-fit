@@ -165,19 +165,21 @@
 
       <!-- Image and Contact Info Card -->
       <div class="contact-info-card" data-aos="fade-left">
-        <!-- Challenge Image -->
-        <div class="challenge-section">
-          <div class="challenge-image">
-            <img src="/desafio_90_dias_jeanfit.jpg" alt="Desafío 90 días JeanFit" />
-            <div class="challenge-overlay">
-              <div class="challenge-badge">
-                <span>¡DESAFÍO 90 DÍAS!</span>
-              </div>
+        <!-- Tarjeta de contacto con efecto apilado desordenado -->
+        <div class="contact-card-stack">
+          <div class="card-stack-container">
+            <!-- Tarjeta de fondo (más desordenada) -->
+            <div class="background-card card-1"></div>
+            <!-- Tarjeta intermedia -->
+            <div class="background-card card-2"></div>
+            <!-- Tarjeta principal con la imagen -->
+            <div class="main-card">
+              <img src="/contact_card.png" alt="Tarjeta de contacto JeanFit Personal Trainer" class="main-card-image" />
             </div>
           </div>
-          <div class="challenge-info">
-            <h3>Transforma tu vida en 90 días</h3>
-            <p>Únete al desafío que ha cambiado cientos de vidas</p>
+          <div class="stack-caption">
+            <h4>Mi Tarjeta Digital</h4>
+            <p>Información de contacto completa</p>
           </div>
         </div>
 
@@ -996,6 +998,579 @@
     .final-cta {
       text-align: center;
       margin: 2rem auto 0 auto;
+    }
+  }
+
+  /* Tarjeta digital moderna y limpia */
+  .digital-card-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .digital-card {
+    position: relative;
+    width: 400px;
+    height: 250px;
+    margin: 0 auto 1.5rem;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: #fff;
+    transform: translateZ(0);
+  }
+
+  .digital-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.2),
+      0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  .digital-card:hover .card-image {
+    transform: scale(1.08);
+  }
+
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, rgba(255, 214, 0, 0.05) 0%, transparent 50%, rgba(237, 28, 36, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .digital-card:hover .card-overlay {
+    opacity: 1;
+  }
+
+  .card-caption {
+    text-align: center;
+  }
+
+  .card-caption h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffd600 0%, #ed1c24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.5px;
+  }
+
+  .card-caption p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .digital-card {
+      width: 350px;
+      height: 220px;
+    }
+
+    .card-caption h4 {
+      font-size: 1.2rem;
+    }
+
+    .card-caption p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .digital-card {
+      width: 300px;
+      height: 190px;
+    }
+
+    .card-caption h4 {
+      font-size: 1.1rem;
+    }
+
+    .card-caption p {
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Tarjeta de contacto profesional */
+  .business-card-section {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .business-card-wrapper {
+    position: relative;
+    display: inline-block;
+    padding: 1rem;
+    background: linear-gradient(145deg, #ffffff, #f8fafc);
+    border-radius: 2rem;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 1.5rem;
+  }
+
+  .business-card-wrapper:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+      0 32px 64px rgba(0, 0, 0, 0.15),
+      0 16px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .business-card {
+    position: relative;
+    width: 380px;
+    height: 240px;
+    border-radius: 1.2rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .business-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+  }
+
+  .business-card-wrapper:hover .business-card-image {
+    transform: scale(1.05);
+  }
+
+  .business-card-reflection {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .business-card-info {
+    text-align: center;
+  }
+
+  .business-card-info h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffd600 0%, #ed1c24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .business-card-info p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .business-card {
+      width: 320px;
+      height: 200px;
+    }
+
+    .business-card-info h4 {
+      font-size: 1.1rem;
+    }
+
+    .business-card-info p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .business-card {
+      width: 280px;
+      height: 175px;
+    }
+
+    .business-card-info h4 {
+      font-size: 1rem;
+    }
+
+    .business-card-info p {
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Tarjeta de contacto con diseño elegante */
+  .contact-card-showcase {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .card-frame {
+    position: relative;
+    width: 400px;
+    height: 280px;
+    margin: 0 auto 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(145deg, #f5f1e8, #ede7db);
+    border-radius: 2rem;
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(0, 0, 0, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-frame:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow:
+      0 32px 64px rgba(0, 0, 0, 0.15),
+      0 16px 32px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+
+  .availability-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: linear-gradient(135deg, #ff9500 0%, #ff6b00 100%);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 6px 20px rgba(255, 149, 0, 0.4);
+    z-index: 2;
+    backdrop-filter: blur(10px);
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .card-image-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .showcase-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+  }
+
+  .card-frame:hover .showcase-image {
+    transform: scale(1.05);
+  }
+
+  .showcase-caption {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .showcase-caption h4 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffd600 0%, #ed1c24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.5px;
+  }
+
+  .showcase-caption p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .card-frame {
+      width: 350px;
+      height: 240px;
+      padding: 0.8rem;
+    }
+
+    .availability-badge {
+      top: 1.2rem;
+      right: 1.2rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    .showcase-caption h4 {
+      font-size: 1.2rem;
+    }
+
+    .showcase-caption p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card-frame {
+      width: 300px;
+      height: 200px;
+      padding: 0.6rem;
+    }
+
+    .availability-badge {
+      top: 1rem;
+      right: 1rem;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.75rem;
+    }
+
+    .showcase-caption h4 {
+      font-size: 1.1rem;
+    }
+
+    .showcase-caption p {
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Tarjeta de contacto con efecto apilado desordenado */
+  .contact-card-stack {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-stack-container {
+    position: relative;
+    width: 450px;
+    height: 280px;
+    margin: 0 auto;
+    /* Sin padding ni fondo - solo el contenedor de las tarjetas */
+  }
+
+  .background-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    border-radius: 1.5rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    z-index: 1;
+  }
+
+  .card-1 {
+    transform: rotate(-4deg) translateX(-8px) translateY(-4px);
+    background: linear-gradient(145deg, #ffffff, #f8f9fa);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-2 {
+    transform: rotate(2deg) translateX(6px) translateY(-2px);
+    background: linear-gradient(145deg, #ffffff, #f1f3f4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    z-index: 2;
+  }
+
+  .main-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    background: #fff;
+    box-shadow:
+      0 12px 35px rgba(0, 0, 0, 0.18),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    z-index: 3;
+    transform: rotate(0deg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-stack-container:hover .main-card {
+    transform: rotate(-1deg) translateY(-4px);
+    box-shadow:
+      0 20px 50px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .card-stack-container:hover .card-1 {
+    transform: rotate(-6deg) translateX(-12px) translateY(-6px);
+  }
+
+  .card-stack-container:hover .card-2 {
+    transform: rotate(4deg) translateX(8px) translateY(-3px);
+  }
+
+  .main-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+  }
+
+  .card-stack-container:hover .main-card-image {
+    transform: scale(1.04);
+  }
+
+  .stack-caption {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .stack-caption h4 {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #ffd600 0%, #ed1c24 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.5px;
+  }
+
+  .stack-caption p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .card-stack-container {
+      width: 340px;
+      height: 220px;
+    }
+
+    .card-1 {
+      transform: rotate(-2deg) translateX(-4px) translateY(-2px);
+    }
+
+    .card-2 {
+      transform: rotate(1deg) translateX(3px) translateY(-1px);
+    }
+
+    .card-stack-container:hover .card-1 {
+      transform: rotate(-3deg) translateX(-6px) translateY(-3px);
+    }
+
+    .card-stack-container:hover .card-2 {
+      transform: rotate(2deg) translateX(4px) translateY(-2px);
+    }
+
+    .stack-caption h4 {
+      font-size: 1.3rem;
+    }
+
+    .stack-caption p {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .card-stack-container {
+      width: 280px;
+      height: 180px;
+    }
+
+    .card-1 {
+      transform: rotate(-1.5deg) translateX(-3px) translateY(-1px);
+    }
+
+    .card-2 {
+      transform: rotate(0.8deg) translateX(2px) translateY(-1px);
+    }
+
+    .card-stack-container:hover .card-1 {
+      transform: rotate(-2.5deg) translateX(-4px) translateY(-2px);
+    }
+
+    .card-stack-container:hover .card-2 {
+      transform: rotate(1.5deg) translateX(3px) translateY(-1px);
+    }
+
+    .stack-caption h4 {
+      font-size: 1.2rem;
+    }
+
+    .stack-caption p {
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .card-stack-container {
+      width: 260px;
+      height: 165px;
+    }
+
+    .card-1 {
+      transform: rotate(-1deg) translateX(-2px) translateY(-1px);
+    }
+
+    .card-2 {
+      transform: rotate(0.5deg) translateX(1px) translateY(0px);
+    }
+
+    .card-stack-container:hover .card-1 {
+      transform: rotate(-2deg) translateX(-3px) translateY(-1px);
+    }
+
+    .card-stack-container:hover .card-2 {
+      transform: rotate(1deg) translateX(2px) translateY(-1px);
+    }
+
+    .stack-caption h4 {
+      font-size: 1.1rem;
+    }
+
+    .stack-caption p {
+      font-size: 0.85rem;
     }
   }
 </style>

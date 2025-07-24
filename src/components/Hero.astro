@@ -126,7 +126,10 @@
       </div>
 
       <!-- Video principal Hero -->
-      <div class="flex justify-center items-center order-first lg:order-last w-full" id="hero-video-wrapper">
+      <div
+        class="flex justify-center items-center order-first lg:order-last w-full pt-4 sm:pt-6 md:pt-0"
+        id="hero-video-wrapper"
+      >
         <!-- Contenedor del video simplificado -->
         <div class="relative w-full flex justify-center" id="hero-video-container">
           <video
@@ -134,12 +137,11 @@
             muted
             loop
             playsinline
-            preload="metadata"
-            poster="/jeanfit_imgportada.png"
+            preload="auto"
             class="hero-video-clean rounded-2xl shadow-2xl"
             id="hero-video"
           >
-            <source src="/Video-promocional-v1.mp4" type="video/mp4" />
+            <source src="/promotional_video_v2.mp4" type="video/mp4" />
             Tu navegador no soporta videos HTML5.
           </video>
         </div>
